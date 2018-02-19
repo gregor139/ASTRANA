@@ -24,6 +24,7 @@ CREATE TABLE	[dbo].[DIM_DATUM]
 		[WOCHENTAG_NR] CHAR(1),-- First Day Monday=1 and Sunday=7
 		[WERKTAG_MO_FR_MM] BIT,
 		[WERKTAG_DI_DO_MM] BIT,
+		[FEIERTAG_MM] BIT,
 		[WOCHE_NR] VARCHAR(2),
 		[WOCHE_NR_MONAT] VARCHAR(2), --1st Monday or 2nd Monday in Month
 		[MONAT_NR] VARCHAR(2), --Number of the Month 1 to 12
