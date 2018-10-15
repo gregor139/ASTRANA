@@ -221,12 +221,12 @@ SET WOCHENTAG_EN_KURZ_BEZ = UPPER(SUBSTRING(DATENAME(DW, DATUM_DATE),1,3))
 ,   WOCHENTAG_EN_BEZ = UPPER(SUBSTRING(DATENAME(DW, DATUM_DATE),1,1)) + SUBSTRING(DATENAME(DW, DATUM_DATE), 2,100)
 ,   MONAT_EN_BEZ = UPPER(SUBSTRING(DATENAME(MM, DATUM_DATE),1,1)) + SUBSTRING(DATENAME(MM, DATUM_DATE), 2,100)
 
--- Fixe Feiertage setzen für Neujahrstag, Nationalfeiertag, Weihnachten und Stephanstag:
+-- Specify the static public holidays: Neujahrstag, Nationalfeiertag, Weihnachten, Stephanstag, Silvester:
 UPDATE [dbo].[DIM_DATUM]
 SET feiertag_mm=1
 WHERE substring(cast(datum_key as varchar(8)), 5, 4) in ('0101','0801','1225','1226','1231');
 
--- Specify the floating public holidays according to http://www.feiertage-schweiz.ch
+-- Specify the floating public holidays according to feiertage-schweiz.ch
 UPDATE [dbo].[DIM_DATUM]
 SET feiertag_mm=1
 WHERE datum_key in (
